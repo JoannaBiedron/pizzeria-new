@@ -250,7 +250,7 @@
         thisWidget.announce();
       }
       else {
-         thisWidget.value;
+        thisWidget.value;
       }
 
       thisWidget.input.value = thisWidget.value;
