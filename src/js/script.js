@@ -154,6 +154,7 @@
       for(let input of thisProduct.formInputs){
         input.addEventListener('change', function(){
           thisProduct.processOrder();
+          thisProduct.addToCart();
         });
       }
 
@@ -243,6 +244,11 @@
         thisProduct.processOrder();
       });
     }
+    addToCart(){
+      const thisProduct = this;
+
+      app.cart.add(thisProduct);
+    }
   }
   class AmountWidget{
     constructor(element){
@@ -330,6 +336,11 @@
       thisCart.dom.toggleTrigger.addEventListener('click', function(){
         thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       })
+    }
+    add(menuProduct){
+      const thisCart = this;
+
+      console.log('adding product', menuProduct);
     }
   }
 
