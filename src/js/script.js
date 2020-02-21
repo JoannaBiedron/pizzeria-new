@@ -311,6 +311,7 @@
       thisCart.products = [];
 
       thisCart.getElements(element);
+      thisCart.initActions();
       console.log('new Cart', thisCart);
     }
 
@@ -327,7 +328,7 @@
       const thisCart = this;
 
       thisCart.dom.toggleTrigger.addEventListener('click', function(){
-        thisCart.dom.wrapper.toggle(classNames.cart.wrapperActive.classList);
+        thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       })
     }
   }
@@ -353,7 +354,7 @@
 
       const cartElem = document.querySelector(select.containerOf.cart);
       thisApp.cart = new Cart(cartElem);
-    }
+    },
 
     init: function(){
       const thisApp = this;
