@@ -365,6 +365,9 @@
       thisCart.dom.productList.appendChild(generatedDOM);
 
       console.log('adding product', menuProduct);
+
+      thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
+      console.log('thisCart.products', thisCart.products);
     }
   }
 
@@ -382,7 +385,8 @@
 
       thisCartProduct.getElements(element);
 
-      console.log('thisCartProduct', thisCartProduct);
+      console.log('new CartProduct',  thisCartProduct);
+      console.log('product data', menuProduct );
     }
 
     getElements(element){
@@ -391,10 +395,10 @@
       thisCartProduct.dom = {};
 
       thisCartProduct.dom.wrapper = element;//wartość argumentu element
-      thisCartProduct.dom.amountWidget = thisCrtProduct.dom.wrapper.querySelector(select.cartProduct.amountWidget);
-      thisCartProduct.dom.price = thisCrtProduct.dom.wrapper.querySelector(select.cartProduct.price);
-      thisCartProduct.dom.edit = thisCrtProduct.dom.wrapper.querySelector(select.cartProduct.edit);
-      thisCartProduct.dom.remove = thisCrtProduct.dom.wrapper.querySelector(select.cartProduct.remove);
+      thisCartProduct.dom.amountWidget = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.amountWidget);
+      thisCartProduct.dom.price = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.price);
+      thisCartProduct.dom.edit = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.edit);
+      thisCartProduct.dom.remove = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.remove);
     }
   }
 
