@@ -358,7 +358,7 @@
     add(menuProduct){
       const thisCart = this;
       //generate HTML based on templates
-      const generatedHTML =  templates.cartProduct(menuProduct);
+      const generatedHTML =  templates.menuProduct(menuProduct);
       //create element using utils.createElementFromHTML
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
       //add generatedDOM to thisCart.dom.productList
