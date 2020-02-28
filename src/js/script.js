@@ -75,6 +75,7 @@
 
   const templates = {
     menuProduct: Handlebars.compile(document.querySelector(select.templateOf.menuProduct).innerHTML),
+    cartProduct: Handlebars.compile(document.querySelector(select.templateOf.cartProduct).innerHTML),
 
   };
 
@@ -358,7 +359,7 @@
     add(menuProduct){
       const thisCart = this;
       //generate HTML based on templates
-      const generatedHTML =  templates.menuProduct(menuProduct);
+      const generatedHTML =  templates.cartProduct(menuProduct);
       //create element using utils.createElementFromHTML
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
       //add generatedDOM to thisCart.dom.productList
@@ -411,7 +412,7 @@
         thisCartProduct.price = thisCartProduct.priceSingle * thisCartProduct.amount;
         console.log('thisCartProduct', thisCartProduct);
 
-        thisCartProduct.dom.price.innerHTML = thisCrtProduct.price;
+        thisCartProduct.dom.price.innerHTML = thisCartProduct.price;
       });
     }
   }
