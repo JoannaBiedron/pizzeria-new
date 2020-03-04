@@ -91,7 +91,7 @@
       thisProduct.initAmountWidget();
       thisProduct.processOrder();
       //thisProduct.addToCart();
-      console.log('new product:  ', thisProduct);
+      //console.log('new product:  ', thisProduct);
     }
     renderInMenu(){
       const thisProduct = this;
@@ -249,7 +249,7 @@
       /* set the contents of thisProduct.priceElem to be the value of variable price */
       thisProduct.priceElem.innerHTML = thisProduct.price;
 
-      console.log('thisProduct.params: ', thisProduct.params);
+      //console.log('thisProduct.params: ', thisProduct.params);
     }
     initAmountWidget(){
       const thisProduct = this;
@@ -276,8 +276,8 @@
       thisWidget.setValue(thisWidget.input.value);
       thisWidget.initActions();
 
-      console.log('AmountWidget: ', AmountWidget);
-      console.log('constructor arguments:', element);
+      //console.log('AmountWidget: ', AmountWidget);
+      //console.log('constructor arguments:', element);
     }
 
     getElements (element){
@@ -337,7 +337,8 @@
       thisCart.getElements(element);
       thisCart.initActions();
       //thisCart.add();
-      console.log('new Cart', thisCart);
+      //console.log('new Cart', thisCart);
+      thisCart.deliveryFee = settings.cart.defaultDeliveryFee;
     }
 
     getElements(element){
@@ -348,6 +349,12 @@
       thisCart.dom.wrapper = element;
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
       thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
+
+      thisCart.renderTotalsKeys = ['totalNumber', 'totalPrice', 'subtotalPrice', 'deliveryFee'];
+
+        for(let key of thisCart.renderTotalsKeys){
+          thisCart.dom[key] = thisCart.dom.wrapper.querySelectorAll(select.cart[key]);
+        }
     }
     initActions(){
       const thisCart = this;
@@ -365,10 +372,34 @@
       //add generatedDOM to thisCart.dom.productList
       thisCart.dom.productList.appendChild(generatedDOM);
 
-      console.log('adding product', menuProduct);
+      //console.log('adding product', menuProduct);
 
       thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
-      console.log('thisCart.products', thisCart.products);
+      //console.log('thisCart.products', thisCart.products);
+      thisCart.update();
+    }
+    update(){
+      const thisCart = this;
+
+      thisCart.totalNumber = 0;
+      thisCart.subtotalPrice = 0;
+
+      for(let product of thisCart.products){
+        thisCart.subtotalPrice += product.price;
+        thisCart.totalNumber += product.amount;
+      }
+
+      thisCart.totalPrice = thisCart.subtotalPrice + thisCart.deliveryFee;
+
+      console.log('totalNumber', thisCart.totalNumber);
+      console.log('subtotalPrice', thisCart.subtotalPrice);
+      console.log('totalPrice', thisCart.totalPrice);
+
+      for(let key of thisCart.renderTotalsKeys){
+        for(let elem of thisCart.dom[key]){
+          elem.innerHTML = thisCart[key];
+        }
+      }
     }
   }
 
@@ -387,8 +418,8 @@
       thisCartProduct.getElements(element);
       thisCartProduct.initAmountWidget();
 
-      console.log('new CartProduct',  thisCartProduct);
-      console.log('product data', menuProduct );
+      //console.log('new CartProduct',  thisCartProduct);
+      //console.log('product data', menuProduct );
     }
 
     getElements(element){
@@ -410,7 +441,7 @@
       thisCartProduct.dom.amountWidget.addEventListener('updated', function(){
         thisCartProduct.amount = thisCartProduct.amountWidget.value;
         thisCartProduct.price = thisCartProduct.priceSingle * thisCartProduct.amount;
-        console.log('thisCartProduct', thisCartProduct);
+        //console.log('thisCartProduct', thisCartProduct);
 
         thisCartProduct.dom.price.innerHTML = thisCartProduct.price;
       });
@@ -420,7 +451,7 @@
   const app = {
     initMenu : function(){
       const thisApp = this;
-      console.log('thisApp.data: ', thisApp.data);
+      //console.log('thisApp.data: ', thisApp.data);
       //const testProduct = new Product();
       //console.log('testProduct:  ', testProduct);
       for(let productData in thisApp.data.products){
