@@ -299,7 +299,7 @@
 
       const newValue = parseInt(value);
 
-      if (newValue != settings.amountWidget.value && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax){
+      if (newValue !== thisWidget.value && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax){
         thisWidget.value = newValue;
         thisWidget.announce();
       }
@@ -462,8 +462,8 @@
       thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidget);
 
       thisCartProduct.dom.amountWidget.addEventListener('updated', function(){
-        thisCartProduct.amount = thisCartProduct.amountWidget.value;
-        thisCartProduct.price = thisCartProduct.priceSingle * thisCartProduct.amount;
+      thisCartProduct.amount = thisCartProduct.amountWidget.value;
+      thisCartProduct.price = thisCartProduct.priceSingle * thisCartProduct.amount;
         //console.log('thisCartProduct', thisCartProduct);
 
         thisCartProduct.dom.price.innerHTML = thisCartProduct.price;
