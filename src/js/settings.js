@@ -79,15 +79,15 @@ export const classNames = {
     wrapperActive: 'active',
   },
   booking: {
-   loading: 'loading',
-   tableBooked: 'booked',
- },
- nav: {
-   active: 'active',
- },
- pages: {
-   active: 'active',
- },
+    loading: 'loading',
+    tableBooked: 'booked',
+  },
+  nav: {
+    active: 'active',
+  },
+  pages: {
+    active: 'active',
+  },
 };
 
 export const settings = {
