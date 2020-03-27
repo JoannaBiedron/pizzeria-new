@@ -1,6 +1,6 @@
 import {select, templates} from '../settings.js';
 import AmountWidget from './AmountWidget.js';
-import {app} from '../app.js';
+//import {app} from '../app.js';
 
 class Booking{
   constructor(){
@@ -16,8 +16,8 @@ class Booking{
     console.log('generatedHTML', generatedHTML);
 
     thisBooking.dom = {};
-    thisBooking.dom.wrapper =
-    console.log('thisBooking.dom.wrapper', thisBooking.dom.wrpper);
+    thisBooking.dom.wrapper = {};
+    //console.log('thisBooking.dom.wrapper', thisBooking.dom.wrpper);
     thisBooking.dom.wrapper.innerHTML = generatedHTML;
 
     thisBooking.dom.peopleAmount = thisBooking.dom.wrapper.querySelector(select.booking.peopleAmount);
