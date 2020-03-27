@@ -3,20 +3,20 @@ import AmountWidget from './AmountWidget.js';
 //import {app} from '../app.js';
 
 class Booking{
-  constructor(){
+  constructor(element){
     const thisBooking = this;
 
-    thisBooking.render();
+    thisBooking.render(element);
     thisBooking.initWidgets();
   }
-  render(){
+  render(element){
     const thisBooking = this;
 
     const generatedHTML = templates.bookingWidget();
     console.log('generatedHTML', generatedHTML);
 
     thisBooking.dom = {};
-    thisBooking.dom.wrapper = {};
+    thisBooking.dom.wrapper =  element;
     //console.log('thisBooking.dom.wrapper', thisBooking.dom.wrpper);
     thisBooking.dom.wrapper.innerHTML = generatedHTML;
 

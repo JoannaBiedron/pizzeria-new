@@ -108,7 +108,7 @@ export const app = {
     const thisApp = this;
 
     thisApp.containerOfBooking = document.querySelector(select.containerOf.booking);
-    new Booking();
+    new Booking(thisApp.containerOfBooking);
   },
 
   init: function(){
