@@ -78,7 +78,7 @@ export const app = {
         return rawResponse.json();
       })
       .then(function(parsedResponse){
-        console.log('parsedResponse:  ', parsedResponse);
+        //console.log('parsedResponse:  ', parsedResponse);
 
         //save parsedResponse as thisApp.data.products
         thisApp.data.products = parsedResponse;
@@ -87,7 +87,7 @@ export const app = {
         thisApp.initMenu();
       });
 
-    console.log('thisApp.data: ', JSON.stringify(thisApp.data));
+    //console.log('thisApp.data: ', JSON.stringify(thisApp.data));
 
   },
 
@@ -113,11 +113,11 @@ export const app = {
 
   init: function(){
     const thisApp = this;
-    console.log('*** App starting ***');
-    console.log('thisApp:', thisApp);
-    console.log('classNames:', classNames);
-    console.log('settings:', settings);
-    console.log('templates:', templates);
+    //console.log('*** App starting ***');
+    //console.log('thisApp:', thisApp);
+    //console.log('classNames:', classNames);
+    //console.log('settings:', settings);
+    //console.log('templates:', templates);
 
     thisApp.initPages();
     thisApp.initData();
